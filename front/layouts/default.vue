@@ -1,13 +1,16 @@
 <template>
-  <v-app :style="{ background: $vuetify.theme.themes.light.background }">
+  <!-- <v-app :style="{ background: $vuetify.theme.themes.light.background }"> -->
+  <v-app>
     <v-app-bar color="primary">
       <v-toolbar-title>Vuetify</v-toolbar-title>
     </v-app-bar>
     <v-main>
       <v-container>
-        <nuxt :style="{ background: $vuetify.theme.themes.light.background }" />
+        <!-- <nuxt :style="{ background: $vuetify.theme.themes.light.background }" /> -->
+        <nuxt />
       </v-container>
     </v-main>
+    <v-footer></v-footer>
   </v-app>
 </template>
 

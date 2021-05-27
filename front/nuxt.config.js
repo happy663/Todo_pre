@@ -61,7 +61,9 @@ export default {
           info: colors.teal.lighten1,
           warning: colors.amber.base,
           error: colors.deepOrange.accent4,
-          success: colors.green.accent3
+          success: colors.green.accent3,
+          background: "#4A148C",
+          red: "#F44336"
         },
         light: {
           primary: colors.blue.darken2,
@@ -71,7 +73,7 @@ export default {
           warning: colors.amber.base,
           error: colors.deepOrange.accent4,
           success: colors.green.accent3,
-          background: "#9C27B0"
+          background: "#03A9F4"
         }
       }
     }
