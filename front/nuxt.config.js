@@ -63,7 +63,7 @@ export default {
           error: colors.deepOrange.accent4,
           success: colors.green.accent3,
           background: "#4A148C",
-          red: "#F44336"
+          toyama: "#673AB7"
         },
         light: {
           primary: colors.blue.darken2,

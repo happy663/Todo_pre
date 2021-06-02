@@ -1,7 +1,7 @@
 <template>
   <!-- <v-app :style="{ background: $vuetify.theme.themes.light.background }"> -->
   <v-app>
-    <v-app-bar color="primary">
+    <v-app-bar app color="primary">
       <v-toolbar-title>Vuetify</v-toolbar-title>
     </v-app-bar>
     <v-main>
