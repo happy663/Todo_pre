@@ -14,12 +14,14 @@
             <v-card-text>
               {{ task.detail }}
             </v-card-text>
-            <v-btn class="delete" fab color="red">
-              <v-icon>mdi-delete</v-icon>
-            </v-btn>
-            <v-btn fab class="pencil">
-              <v-icon>mdi-lead-pencil</v-icon>
-            </v-btn>
+            <v-card-action>
+              <v-btn class="delete" fab color="red">
+                <v-icon>mdi-delete</v-icon>
+              </v-btn>
+              <v-btn fab class="pencil">
+                <v-icon>mdi-lead-pencil</v-icon>
+              </v-btn>
+            </v-card-action>
           </v-card>
         </div>
       </v-col>
@@ -30,23 +32,25 @@
         <div class="text-center">
           <v-dialog v-model="dialog" width="500">
             <template v-slot:activator="{ on, attrs }">
-              <v-btn color="red lighten-2" dark v-bind="attrs" v-on="on">
+              <v-btn
+                color="red lighten-2"
+                dark
+                v-bind="attrs"
+                v-on="on"
+                class="vbtton"
+              >
                 Click Me
               </v-btn>
             </template>
-
             <v-card>
               <v-card-title class="text-h5 grey lighten-2">
                 Privacy Policy
               </v-card-title>
-
               <v-card-text>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
               </v-card-text>
-
               <v-divider></v-divider>
-
               <v-card-actions>
                 <v-spacer></v-spacer>
                 <v-btn color="primary" text @click="dialog = false">
@@ -74,7 +78,8 @@ export default {
         { name: "study", detail: "勉強する" },
         { name: "run", detail: "走る" },
         { name: "run", detail: "走る" }
-      ]
+      ],
+      dialog: false
     };
   },
   methods: {
