@@ -12,13 +12,20 @@
           タスクを追加する
         </v-btn>
       </template>
-      <v-card height="800px" style="relative">
+      <v-card height="800px" style="position:relative">
         <v-card-title class="text-h5 grey lighten-2">
           Privacy Policy
         </v-card-title>
-        <v-card-text> </v-card-text>
-        <Date></Date>
-        <Time></Time>
+        <v-card-text style="relative"
+          >日付:{{ value }}
+          <v-form>
+            <v-text-field v-model="value" single-line>
+              <template v-slot:append-outer>
+                <Date v-model="value"></Date>
+              </template>
+            </v-text-field>
+          </v-form>
+        </v-card-text>
         <v-divider></v-divider>
         <v-card-actions>
           <v-spacer></v-spacer>
@@ -38,9 +45,9 @@ export default {
   setup() {},
   data() {
     return {
-      picker: new Date().toISOString().substr(0, 10),
       time: "16:23:21",
-      dialog: false
+      dialog: false,
+      value: null
     };
   }
 };
@@ -59,7 +66,7 @@ export default {
 }
 .date {
   position: absolute;
-  left: 20px;
+  left: 0px;
 }
 .add {
   position: absolute;
