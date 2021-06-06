@@ -20,11 +20,11 @@
           <v-card-text style="relative">
             <v-form>
               <v-col cols="8">
-                タスク名
-                <v-text-field></v-text-field>
+                タスク名{{ name }}
+                <v-text-field v-model="name"></v-text-field>
               </v-col>
               <v-col cols="9" class="justify-center">
-                日付
+                日付{{ valuedate }}
                 <v-text-field v-model="valuedate" single-line>
                   <template v-slot:append-outer>
                     <Date v-model="valuedate"></Date>
@@ -32,7 +32,7 @@
                 </v-text-field>
               </v-col>
               <v-col cols="9">
-                時間
+                時間{{ valuetime }}
                 <v-text-field v-model="valuetime" single-line>
                   <template v-slot:append-outer>
                     <Time v-model="valuetime"></Time>
@@ -40,8 +40,8 @@
                 </v-text-field>
               </v-col>
               <v-col cols="8">
-                タスクの詳細
-                <v-text-field></v-text-field>
+                タスクの詳細{{ detail }}
+                <v-text-field v-model="detail"></v-text-field>
               </v-col>
             </v-form>
           </v-card-text>
@@ -49,7 +49,15 @@
         <v-divider></v-divider>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn color="primary" text @click="dialog = false" class="add">
+          <v-btn
+            color="primary"
+            text
+            @click="
+              dialog = false;
+              registerTask();
+            "
+            class="add"
+          >
             追加する
             <!-- {{ picker }}
             {{ time }} -->
@@ -65,11 +73,23 @@ export default {
   setup() {},
   data() {
     return {
+      name: "",
       time: "16:23:21",
       dialog: false,
-      valuedate: null,
-      valuetime: null
+      valuedate: "",
+      valuetime: "",
+      detail: ""
     };
+  },
+  methods: {
+    registerTask() {
+      this.$store.dispatch("postTask", {
+        name: this.name,
+        date: this.valuedate,
+        time: this.valuetime,
+        detail: this.detail
+      });
+    }
   }
 };
 </script>

@@ -1,3 +1,5 @@
+import { generateTasks } from "fast-glob";
+import { type } from "os";
 import { comment } from "postcss";
 
 export const state = () => ({
@@ -31,16 +33,23 @@ export const actions = {
   },
   //非同期処理
   postTask(content, task) {
-    console.log(task);
     this.$axios
       .post(
-        "https://firestore.googleapis.com/v1/projects/todopre-88aa6/databases/(default)/documents/comments",
+        "https://firestore.googleapis.com/v1/projects/todopre-88aa6/databases/(default)/documents/tasks",
         {
           fields: {
             name: {
               stringValue: task.name
+            },
+            detail: {
+              stringValue: task.detail
+            },
+            time: {
+              stringValue: task.time
+            },
+            date: {
+              stringValue: task.date
             }
-            
           }
         }
       )

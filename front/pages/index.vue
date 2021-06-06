@@ -27,7 +27,6 @@
         </v-col>
         <v-col cols="12">
           <AddTasks></AddTasks>
-          <button @click="registerTask()">post</button>
         </v-col>
       </v-row>
     </v-container>
@@ -54,7 +53,7 @@ export default {
       this.message = "おはようございます";
     },
     registerTask() {
-      this.$store.dispatch("postTask",{name:"とても寝る"});
+      this.$store.dispatch("postTask", this.tasks);
     }
   },
   created() {}
