@@ -6,12 +6,7 @@
           <v-icon>mdi-calendar</v-icon>
         </v-btn>
       </template>
-      <v-date-picker
-        @click="menu = false"
-        v-model="picker"
-        class="date"
-        width="450px"
-      />
+      <v-date-picker @click="menu = false" v-model="picker" />
     </v-menu>
   </div>
 </template>
@@ -19,7 +14,7 @@
 <script>
 export default {
   props: {
-    value: {
+    valuedate: {
       type: String,
       default: new Date().toISOString().substr(0, 10)
     }
@@ -32,7 +27,7 @@ export default {
   computed: {
     picker: {
       get() {
-        return this.value;
+        return this.valuedate;
       },
       set(val) {
         this.menu = false;
@@ -44,7 +39,7 @@ export default {
 </script>
 
 <style scoped>
-.date {
+.picker {
   position: absolute;
   left: 20px;
 }

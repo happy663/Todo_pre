@@ -25,8 +25,9 @@
             </v-card>
           </div>
         </v-col>
-        <v-col col="12">
+        <v-col cols="12">
           <AddTasks></AddTasks>
+          <button @click="registerTask()">post</button>
         </v-col>
       </v-row>
     </v-container>
@@ -51,8 +52,12 @@ export default {
   methods: {
     chnageName: function() {
       this.message = "おはようございます";
+    },
+    registerTask() {
+      this.$store.dispatch("postTask",{name:"とても寝る"});
     }
-  }
+  },
+  created() {}
 };
 </script>
 
